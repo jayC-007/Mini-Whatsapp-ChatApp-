@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Message</title>
+    <link rel="stylesheet" href="/edit.css">
 </head>
 <body>
-    <h3>Chat ID: <%= chat._id %></h3>
-    <p>Chat sent by: <i><b> <%= chat.from %></b></i></p>
-    <p>Chat Received by: <i> <b><%= chat.to %></b></i> </p>
-    <form method="POST" action="/chats/<%= chat._id %>?_method=PUT">
-    <textarea name="msg" cols="30" rows="10"><%= chat.msg %></textarea> <br><br>
-    <button>Edit</button>
-    </form>
-    <p>
-        <p>Time: <%= chat.created_at.toString().split(" ")[4]%></p>
-        <p>Date: <%= chat.created_at.toString().split(" ").slice(0,4).join(" ")%></p> 
-    </p>
+    <div class="container">
+        <h3>Chat ID: <%= chat._id %></h3>
+        <p>Chat sent by: <i><b> <%= chat.from %></b></i></p>
+        <p>Chat Received by: <i> <b><%= chat.to %></b></i> </p>
+        <form method="POST" action="/chats/<%= chat._id %>?_method=PUT">
+        <textarea name="msg" cols="50" rows="10"><%= chat.msg %></textarea> <br><br>
+        <button>Edit</button>
+        </form>
+        <p>
+            <p>Time: <%= chat.created_at.toString().split(" ")[4]%></p>
+            <p>Date: <%= chat.created_at.toString().split(" ").slice(0,4).join(" ")%></p> 
+        </p>
+    </div>
+
 </body>
 </html>
